@@ -3,9 +3,9 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const urlSchema = new Schema({
-	urlId: String,
 	longUrl: String,
 	shortUrl: String,
+	urlKey: String,
 	date: { type: String, default: new Date() },
 });
 
