@@ -2,10 +2,13 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
+import connection from "./database/db.js";
+
 const app = express();
 const port = process.env.PORT || 9000;
 
 app.use(express.json());
+connection();
 
 app.get('/', (_, res) => {
 	res.status(200).json({message: "URL Shortener is Running!!!"})
