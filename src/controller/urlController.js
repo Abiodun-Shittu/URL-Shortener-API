@@ -1,7 +1,7 @@
 import shortid from "shortid";
 import validUrl from "valid-url";
 
-import urlSchema from "../models/urlSchema.js";
+import url from "../models/urlSchema.js";
 
 const baseUrl = "http://localhost:9000";
 
@@ -16,10 +16,13 @@ const shortenUrl = async (req, res) => {
 		if (!validUrl.isUri(longUrl)) {
 			return res.status(401).json("Invalid Long URL");
 		}
-		let findUrl = await urlSchema.findOne({ longUrl });
+		let findUrl = await url.findOne({
+			shortUrl: "http://localhost:9000/gPWdAj_Fi",
+		});
+		console.log(findUrl)
 		if (!findUrl) {
 			const shortUrl = baseUrl + "/" + urlKey;
-			findUrl = new urlSchema({
+			findUrl = new url({
 				longUrl,
 				shortUrl,
 				urlKey,
