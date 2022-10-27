@@ -16,10 +16,7 @@ const shortenUrl = async (req, res) => {
 		if (!validUrl.isUri(longUrl)) {
 			return res.status(401).json("Invalid Long URL");
 		}
-		let findUrl = await url.findOne({
-			shortUrl: "http://localhost:9000/gPWdAj_Fi",
-		});
-		console.log(findUrl)
+		let findUrl = await url.findOne({ longUrl });
 		if (!findUrl) {
 			const shortUrl = baseUrl + "/" + urlKey;
 			findUrl = new url({
