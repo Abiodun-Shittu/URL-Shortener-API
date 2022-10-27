@@ -10,8 +10,8 @@ import redirectRouter from "./routes/redirectRoute.js";
 const app = express();
 const port = process.env.PORT || 8000;
 
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 connection();
 
 app.get("/", (_, res) => {
