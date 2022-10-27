@@ -3,7 +3,7 @@ import validUrl from "valid-url";
 
 import url from "../models/urlSchema.js";
 
-const baseUrl = "http://localhost:9000";
+const baseUrl = "https://url-shrink-it.herokuapp.com";
 
 const shortenUrl = async (req, res) => {
 	try {
